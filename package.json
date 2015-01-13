@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "body": "^4.5.0",
+    "ecstatic": "~0.5.8",
+    "is-root": "^1.0.0",
+    "minimist": "^1.1.0",
+    "routes": "^2.0.0",
+    "tcp-bind": "^1.1.1",
+    "xtend": "^4.0.0"
+  }
+}
