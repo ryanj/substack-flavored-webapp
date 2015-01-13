@@ -10,6 +10,8 @@ This example only includes the backend components.
 * [body](https://npmjs.org/package/body) - parse incoming form data
 * [minimist](https://npmjs.org/package/minimist) - parse arguments
 * [ecstatic](https://npmjs.org/package/ecstatic) - serve static files
+* [trumpet](https://npmjs.org/package/ecstatic) - insert html into layouts
+* [he](https://npmjs.org/package/he) - encode html entities
 
 # as it grows
 
