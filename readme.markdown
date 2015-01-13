@@ -1,4 +1,5 @@
-Here are some tiny modules I like to glue together to build webapps.
+Here are some tiny backend node modules I like to glue together to build
+webapps.
 
 This example only includes the backend components.
 
