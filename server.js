@@ -12,6 +12,8 @@ var http = require('http');
 var ecstatic = require('ecstatic')(__dirname + '/static');
 var body = require('body/any');
 var xtend = require('xtend');
+var fs = require('fs');
+var path = require('path');
 
 var router = require('routes')();
 router.addRoute('/hello/:name', function (req, res, params) {
@@ -43,4 +45,8 @@ function post (fn) {
     function onbody (err, pvars) {
         fn(req, res, xtend(pvars, params));
     }
+}
+
+function read (file) {
+    return fs.createReadStream(path.join(__dirname, 'static', file));
 }
