@@ -46,11 +46,10 @@ function post (fn) {
             res.statusCode = 400;
             res.end('not a POST\n');
         }
-        body(req, res, onbody);
+        body(req, res, function (err, pvars) {
+            fn(req, res, xtend(pvars, params));
+        });
     };
-    function onbody (err, pvars) {
-        fn(req, res, xtend(pvars, params));
-    }
 }
 
 function layout (res) {
