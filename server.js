@@ -1,13 +1,4 @@
-var alloc = require('tcp-bind');
-var minimist = require('minimist');
-var argv = minimist(process.argv.slice(2), {
-    alias: { p: 'port', u: 'uid', g: 'gid' },
-    default: { port: require('is-root')() ? 80 : 8000 }
-});
-var fd = alloc(argv.port);
-if (argv.gid) process.setgid(argv.gid);
-if (argv.uid) process.setuid(argv.uid);
-
+var config = require('cloud-env');
 var http = require('http');
 var ecstatic = require('ecstatic')(__dirname + '/static');
 var body = require('body/any');
@@ -36,8 +27,8 @@ var server = http.createServer(function (req, res) {
     if (m) m.fn(req, res, m.params);
     else ecstatic(req, res)
 });
-server.listen({ fd: fd }, function () {
-    console.log('listening on :' + server.address().port);
+server.listen(config.get('PORT'), config.get('IP'), function () {
+    console.log('listening on ' + server.address().port);
 });
 
 function post (fn) {

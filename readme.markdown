@@ -5,27 +5,11 @@ This example only includes the backend components.
 
 # modules
 
-* [tcp-bind](https://npmjs.org/package/tcp-bind) - allocate a low port before
-  dropping privileges
+* [cloud-env](https://npmjs.org/package/cloud-env) - port autodetection for common hosting platforms
 * [routes](https://npmjs.org/package/routes) - organize routing
 * [ecstatic](https://npmjs.org/package/ecstatic) - serve static files
 * [body](https://npmjs.org/package/body) - parse incoming form data
 * [trumpet](https://www.npmjs.com/package/trumpet) - insert html into layouts
-
-## tcp-bind
-
-This module will allocate a port so that you can allocate as root and then drop
-down into a non-root user after the port has been allocated:
-
-``` js
-var alloc = require('tcp-bind');
-// ...
-var fd = alloc(argv.port);
-if (argv.gid) process.setgid(argv.gid);
-if (argv.uid) process.setuid(argv.uid);
-```
-
-Specify the user and group to drop into with `-g` and `-u`.
 
 ## routes
 
@@ -181,15 +165,8 @@ dispatching events.
 
 # running the server
 
-To run the server for development, do:
+Start the server:
 
 ```
 $ npm start
 ```
-
-To run the server on port 80 for production, do:
-
-```
-$ sudo node server.js -u $USER -g $USER 
-```
-
